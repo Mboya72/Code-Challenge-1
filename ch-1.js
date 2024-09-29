@@ -1,20 +1,29 @@
-function marks(m) {
-    if (m > 79) {
-        console.log('your grade: A');
+const prompt = require('prompt-sync')();
+function calculateGrade(mark) {
+    if (mark > 79) {
+        return 'A';
+    } else if (mark >= 60) {
+        return 'B';
+    } else if (mark >= 50) {
+        return 'C';
+    } else if (mark >= 40) {
+        return 'D';
+    } else {
+        return 'E';
     }
-    else if (m => 60 && m <= 79) {
-        console.log('Your grade: B')
-    }
-    else if (m > 59 && m < 60) {
-        console.log('Your grade: C')
-    }
-    else if (m => 40 && m <= 49) {
-        console.log('Your grade: D')
-    }
-    else if (m < 40) {
-        console.log('Your grade: E')
-    }
-    return 'You Entered:' + m;
 }
-const Grade = marks(60);
-console.log(Grade);
+
+function studentGradeGenerator() {
+    const mark = parseFloat(prompt('Enter the student mark (0-100):'));
+
+    if (isNaN(mark) || mark < 0 || mark > 100) {
+        return 'Invalid input. Please enter a valid mark between 0 and 100.';
+    }
+
+    const grade = calculateGrade(mark);
+    return `The student's grade is: ${grade}`;
+}
+
+
+const result = studentGradeGenerator();
+console.log(result);
