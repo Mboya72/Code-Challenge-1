@@ -1,6 +1,7 @@
+const prompt = require('prompt-sync')();
 function calculateNetSalary(basicSalary, benefits) {
- const grossSalary = basicSalary + benefits;
- 
+ const grossSalary = parseFloat(basicSalary ) + parseFloat(benefits);
+
     if (grossSalary <= 24000) {
         taxRate = 0.1;
     }
@@ -39,8 +40,8 @@ function calculateNetSalary(basicSalary, benefits) {
 }
 
 
-const basicSalary = 59000;
-const benefits = 4500;
+const basicSalary = prompt("Enter basic salary:");
+const benefits = prompt("Enter benefits:");
 const result = calculateNetSalary(basicSalary, benefits);
 console.log("Net Salary Calculation Results:");
 console.log("Gross Salary:", result.grossSalary);
